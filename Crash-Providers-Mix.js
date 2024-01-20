@@ -7,7 +7,7 @@
  * 将 订阅链接或 Sub-Store 订阅链接替换到 'proxy-providers'中的 url
  * 达到 Clash 配合 Sub-Store，并在 Clash 客户端中显示订阅信息的效果
  * 
- * @param {string} template Clash 配置模板链接
+ * @param {string} template Clash 配置模板
  * @param {string} urlKey Clash 配置模板中的'proxy-providers'的 url 参数
  * @param {string} name 将会在 Clash 客户端上显示的订阅名称
  * @param {string} url 机场订阅链接或 Sub-Store 订阅链接
@@ -33,14 +33,14 @@ export default {
       return new Response('请传入url参数')
     }
 
-    const templateResponse = await fetch(param_template_url, {
-      headers: {
-        "User-Agent": "clash"
-      }
-    })
+    const templateResponse = await fetch(param_template_url)
     const template_context = await templateResponse.text()
 
-    const response = await fetch(param_url)
+    const response = await fetch(param_url, {
+      headers: {
+        "User-Agent": "clash-verge/v1.4.5"
+      }
+    })
     const subscriptionUserinfo = response.headers.get("subscription-userinfo")
 
     const modifiedHeaders = new Headers()
