@@ -1,7 +1,7 @@
 /**
  * @ConfigName Clash-Providers-Mix
  * @Author @wddclass
- * @UpdateDate 2024/1/19
+ * @UpdateDate 2024/1/20
  * 
  * 通过 {param_template_url} 地址栏参数传入clash模板，替换 {urlKey} 关键词
  * 将 订阅链接或 Sub-Store 订阅链接替换到 'proxy-providers'中的 url
